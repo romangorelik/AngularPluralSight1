@@ -87,6 +87,10 @@ export class ProductsComponent implements OnInit {
       product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1)
   }
 
+  onRatingClicked(message: string): void {
+    this.title = 'Product List: ' + message
+  }
+
   toggleImage(): void {
     this.showImage = !this.showImage
   }
