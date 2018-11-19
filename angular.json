@@ -3,24 +3,25 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AngPrac": {
+    "APM": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "pm",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/AngPrac",
+            "outputPath": "dist/APM",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/api"
             ],
             "styles": [
               "src/styles.css"
@@ -57,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "AngPrac:build"
+            "browserTarget": "APM:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "AngPrac:build:production"
+              "browserTarget": "APM:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AngPrac:build"
+            "browserTarget": "APM:build"
           }
         },
         "test": {
@@ -84,7 +85,8 @@
             "scripts": [],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/api"
             ]
           }
         },
@@ -102,20 +104,19 @@
         }
       }
     },
-    "AngPrac-e2e": {
+    "APM-e2e": {
       "root": "e2e/",
       "projectType": "application",
-      "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "AngPrac:serve"
+            "devServerTarget": "APM:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "AngPrac:serve:production"
+              "devServerTarget": "APM:serve:production"
             }
           }
         },
@@ -131,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "AngPrac"
+  "defaultProject": "APM"
 }

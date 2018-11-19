@@ -3,7 +3,6 @@ import { IProduct } from './products';
 import { ProductsService } from './products.service'
 
 @Component({
-  selector: 'app-products',
   templateUrl: './product-list.component.html',
   styleUrls: ['./products.component.css']
 })
@@ -12,7 +11,7 @@ export class ProductsComponent implements OnInit {
   imageWidth: number = 50
   imageMargin: number = 2
   showImage: boolean = false
-  
+  errorMessage: string
   _listFilter: string 
 
   get listFilter(): string {
@@ -44,8 +43,13 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.productsService.getProducts()
-    this.filteredProducts = this.products;
+    this.productsService.getProducts().subscribe(
+      products => {
+        this.products = products
+        this.filteredProducts = this.products;
+      },
+      error => this.errorMessage = <any>error
+    )
   }
 
 }
